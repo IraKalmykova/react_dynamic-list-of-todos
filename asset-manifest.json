@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react_dynamic-list-of-todos/static/css/main.9ccc9f1f.chunk.css",
+    "main.css": "/react_dynamic-list-of-todos/static/css/main.7ade7869.chunk.css",
     "main.js": "/react_dynamic-list-of-todos/static/js/main.90cd3b85.chunk.js",
     "main.js.map": "/react_dynamic-list-of-todos/static/js/main.90cd3b85.chunk.js.map",
     "runtime~main.js": "/react_dynamic-list-of-todos/static/js/runtime~main.b6f1ef06.js",
@@ -8,8 +8,8 @@
     "static/js/2.7dff75fa.chunk.js": "/react_dynamic-list-of-todos/static/js/2.7dff75fa.chunk.js",
     "static/js/2.7dff75fa.chunk.js.map": "/react_dynamic-list-of-todos/static/js/2.7dff75fa.chunk.js.map",
     "index.html": "/react_dynamic-list-of-todos/index.html",
-    "precache-manifest.e7ac3330f2df55bf5294202f9a547b18.js": "/react_dynamic-list-of-todos/precache-manifest.e7ac3330f2df55bf5294202f9a547b18.js",
+    "precache-manifest.499cec29782f5487796b863c1ba55b20.js": "/react_dynamic-list-of-todos/precache-manifest.499cec29782f5487796b863c1ba55b20.js",
     "service-worker.js": "/react_dynamic-list-of-todos/service-worker.js",
-    "static/css/main.9ccc9f1f.chunk.css.map": "/react_dynamic-list-of-todos/static/css/main.9ccc9f1f.chunk.css.map"
+    "static/css/main.7ade7869.chunk.css.map": "/react_dynamic-list-of-todos/static/css/main.7ade7869.chunk.css.map"
   }
 }
