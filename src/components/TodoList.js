@@ -13,10 +13,6 @@ class TodoList extends React.Component {
     sortCondition: 0,
   }
 
-  pressButton = () => {
-    this.setState({selectedButton: true})
-  };
-
   selectUser = (userId) => {
     const copyUsers = {...this.state.users[userId-1]};
     const userData = Object.keys(copyUsers)
@@ -69,20 +65,18 @@ class TodoList extends React.Component {
     return (
       <div>
         {
-          !this.state.selectedButton ?
-            <button onClick={this.pressButton}>Enter</button> :
-            this.state.selectedUser ?
-              (<User user = {this.state.selectedUser}/>) :
+          this.state.selectedUser ?
+            (<User user = {this.state.selectedUser}/>) :
               this.state.todosList.length > 0 ? (
-                  <table>
-                    <thead>
+                <table>
+                  <thead>
                     <tr>
                       <th>Name</th>
                       <th>Title</th>
                       <th><a href="#" onClick={this.sortByStatus}>Status <span>{this.state.sortCondition ? '↓' : '↑'}</span></a></th>
                     </tr>
-                    </thead>
-                    <tbody>
+                  </thead>
+                  <tbody>
                     {
                       this.state.todosList.map(user => (
                         <TodoItem
@@ -95,8 +89,8 @@ class TodoList extends React.Component {
                         />
                       ))
                     }
-                    </tbody>
-                  </table>
+                  </tbody>
+                </table>
                 ) : (
               <button className="load">Loading</button>
             )
