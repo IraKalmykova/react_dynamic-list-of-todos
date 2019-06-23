@@ -89,3 +89,7 @@ button:active {
     content: '...';
   }
 }
+
+ul {
+  list-style-type: none;
+}
