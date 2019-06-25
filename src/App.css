@@ -1,40 +1,19 @@
-div {
-  text-align: center;
+.section {
+    display: flex;
+    justify-content: center;
 }
 
-table {
-  border-collapse: collapse;
+.table {
+    border-collapse: collapse;
+    text-align: center;
 }
 
-td {
+.table__column {
   padding: 10px 5px;
 }
 
-tr {
+.table__row {
   border: 2px solid black;
-}
-
-.bold {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.visually-hidden {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-a:hover {
-  color: chocolate;
-  font-weight: bold;
 }
 
 .completed-true {
@@ -45,7 +24,7 @@ a:hover {
   background: yellow;
 }
 
-button {
+.btn-load {
   font-weight: 700;
   color: white;
   text-decoration: none;
@@ -59,37 +38,18 @@ button {
   font-size: 36px;
   cursor: pointer;
 }
-button:hover {
+
+.btn-load:hover {
   background: rgb(53, 167, 110);
 }
 
-button:active {
-  background: rgb(33,147,90);
-  box-shadow: 0 3px rgb(33,147,90) inset;
+.btn-sort {
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.load {
-  text-align: left;
-  padding: 0 20px;
+.btn-sort:hover:before {
+    content: 'Sort by '
 }
 
-.load:after {
-  content: '';
-  animation: loader 2s infinite ease-in-out;
-}
-
-@keyframes loader {
-  0% {
-    content: '.';
-  }
-  50%{
-    content: '..';
-  }
-  100%{
-    content: '...';
-  }
-}
-
-ul {
-  list-style-type: none;
-}

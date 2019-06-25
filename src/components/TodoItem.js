@@ -1,12 +1,13 @@
 import React from 'react';
 import '../App.css';
+import User from './User';
 
 const TodoItem = (props) => {
   return (
-    <tr>
-      <td><a href="#" onClick={() => props.selectUser(props.userId)}>{props.name}</a></td>
-      <td>{props.title}</td>
-      <td class={props.completed ? 'completed-true' : 'completed-false'}>{props.status}</td>
+    <tr key={props.key} className="table__row">
+      <User name={props.name}/>
+      <td className="table__column">{props.title}</td>
+      <td className={props.completed ? 'table__column completed-true' : 'table__column completed-false'}>{props.status}</td>
     </tr>
   )
 }
