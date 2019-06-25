@@ -1,26 +1,75 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import TodoList from './components/TodoList'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    disabled: false,
+    todos: [],
+    users: [],
+    todosLoaded: false,
+  }
+
+  onLoad = () => {
+    this.setState({
+      disabled: true,
+    });
+    this.componentDidMount().then(() => {
+      this.setState({todosLoaded: true})
+    });
+    ;
+  };
+
+  componentDidMount = async () => {
+    const BASE_URL = 'https://jsonplaceholder.typicode.com';
+    const responseTodos = await fetch(`${BASE_URL}/todos`);
+    const todos = await responseTodos.json();
+
+    const responseUsers = await fetch(`${BASE_URL}/users`);
+    const users = await responseUsers.json();
+
+    const todosData = todos.map(todo => {
+      return {
+        ...todo,
+        status: todo.completed ? 'completed' : 'in progress',
+        name: users.find(user => user.id === todo.userId).name,
+      }
+    });
+
+    this.setState({
+      todos: todosData,
+      users
+    })
+  };
+
+  sortBy = (e) => {
+    const value = e.target.textContent.toLowerCase();
+    this.setState((prevState) => ({
+      todos: prevState.todos.sort((a, b) =>
+        a[value].localeCompare(b[value])
+      )
+    }));
+  }
+
+  render() {
+    return (
+      <div className="section">
+        {
+          this.state.todosLoaded ?
+            <TodoList
+              todos={this.state.todos}
+              sortBy={this.sortBy}
+            /> :
+            <button
+              className="btn-load"
+              disabled={this.state.disabled}
+              onClick={this.onLoad}>
+                {this.state.disabled ? 'Loading' : 'Load'}
+            </button>
+        }
+      </div>
+    );
+  }
 }
 
 export default App;
